@@ -5,7 +5,14 @@
 {% block body %}
 
     <div class="container">
-    <h1 class="col-9 bg-warning justify-content-center mx-auto my-5 py-3 rounded text-white ">Modifier le {{ musee.nom }}</h1>
+
+    <div class="card bg-warning col-9 mx-auto my-3">
+        <img class="card-img-top img-edit rounded my-1" src="{{ musee.photo }}" alt="Card image cap">
+        <div class="card-body">
+            <h1 class="card-title text-white ">Modifier {{ musee.nom }}</h1>
+        </div>
+    </div>
+
         <div class="col-9 justify-content-center m-auto border border-warning rounded p-3">
 
             {{ include('musee/_form.html.twig', {'button_label': 'Modifier'}) }}

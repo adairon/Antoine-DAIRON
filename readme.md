@@ -2,7 +2,7 @@
 
 # procédure d'installation
 ## Prérequis
-- avoir un serveur web local apache (Wamp pour PC ou Mamp pour Mac)
+- avoir un serveur web apache (si en local : Wamp pour PC ou Mamp pour Mac)
 - PHP 7.3
 ## install pour un utilisateur lambda
 - Ouvrir un dossier en local.
@@ -13,6 +13,3 @@
 ## Migrations entités
 1. Création du fichier de migration (code SQL) ```bin/console make:migration```
 2. Executer la migration ```bin/console doctrine:migrations:migrate```
-## Fixtures
-les fixtures fonctionnent en mode développement normalement.  
-```bin/console doctrine:fixtures:load```

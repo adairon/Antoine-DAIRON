@@ -3,17 +3,21 @@
 {% block title %}{{ musee.nom }}{% endblock %}
 
 {% block body %}
-    <h1>{{ musee.nom }}</h1>
 
     <div class="container">
+    <h1 class="bg-info justify-content-center mx-auto my-5 py-3 rounded text-white">{{ musee.nom }}</h1>
 
-    <div class="card mb-3">
+    <div class="card mb-3 border-info">
         <img class="card-img-top" src="{{ musee.photo }}" alt="Card image cap">
         <div class="card-body">
-            <h3 class="card-title">{{ musee.nom }}</h3>
-            <p class="card-text"><small class="text-muted">adresse : {{ musee.adresse }}</small></p>
-            <p class="card-text"><small class="text-muted">prix : {{ musee.prix }} </small></p>
+            <h2 class="card-title">{{ musee.nom }}</h2>
+            <h5>Adresse : </h5>
+            <p class="card-text">{{ musee.adresse }}</p>
+            <h5>Prix : </h5>
+            <p class="card-text">{{ musee.prix }} </p>
+            <h4>Présentation :</h4>
             <p class="card-text">{{ musee.presentation }}</p>
+            <h4>Oeuvres célèbres :</h4>
             <p class="card-text">{{ musee.oeuvre }}</p>
         </div>
         <div class="card-footer d-flex justify-content-around">

@@ -13,11 +13,18 @@ h1{
 /* td img{
     height: 150px;
 } */
+
 .img-index{
     height: 400px;
     object-fit: cover;
 }
 
+.img-edit{
+    height: 200px;
+    object-fit: cover;
+}
+
+/* ============= BOUTONS ============== */
 button a{
     color: white;
     text-decoration: none;
