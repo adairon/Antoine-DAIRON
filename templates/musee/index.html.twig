@@ -3,8 +3,25 @@
 {% block title %}Musées connus{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Les Musées les plus connus</h1>
+    <div class="index-title bg-dark p-3">
+        <h1 class="text-white">Les Musées les plus connus</h1>
+    </div>
     
+    {% for message in app.flashes('success') %}
+        <div class="container">
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('danger') %}
+        <div class="container">
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
     
     <div class="container mt-5">
 
@@ -19,7 +36,7 @@
         <div class="card-body">
             <h3 class="card-title">{{ musee.nom }}</h3>
             <p class="card-text"><small class="text-muted">adresse : {{ musee.adresse }}</small></p>
-            <p class="card-text"><small class="text-muted">prix moyen : {{ musee.prix }} €</small></p>
+            <p class="card-text"><small class="text-muted">prix : {{ musee.prix }} </small></p>
             <p class="card-text">{{ musee.presentation }}</p>
             <p class="card-text">{{ musee.oeuvre }}</p>
         </div>
@@ -79,21 +96,5 @@
         </table> #}
 
     </div>
-
-{% for message in app.flashes('success') %}
-    <div class="container">
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    </div>
-{% endfor %}
-
-{% for message in app.flashes('danger') %}
-    <div class="container">
-        <div class="alert alert-danger">
-            {{ message }}
-        </div>
-    </div>
-{% endfor %}
 
 {% endblock %}

@@ -25,26 +25,32 @@ class Musee
 
     /**
      * @ORM\Column(type="string", length=2000)
+     * @Assert\NotBlank(message="Veuillez renseigner l'url de l'image")
+     * @Assert\Url(message="Veuillez renseigner une url valide pour l'image")
      */
     private $photo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner l'adresse du musée")
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner le prix du musée")
      */
     private $prix;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez remplir la présentation du musée")
      */
     private $presentation;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Veuillez indiquer quelques oeuvres du musée")
      */
     private $oeuvre;
 

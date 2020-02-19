@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Musee{% endblock %}
+{% block title %}{{ musee.nom }}{% endblock %}
 
 {% block body %}
     <h1>{{ musee.nom }}</h1>
@@ -12,7 +12,7 @@
         <div class="card-body">
             <h3 class="card-title">{{ musee.nom }}</h3>
             <p class="card-text"><small class="text-muted">adresse : {{ musee.adresse }}</small></p>
-            <p class="card-text"><small class="text-muted">prix moyen : {{ musee.prix }} €</small></p>
+            <p class="card-text"><small class="text-muted">prix : {{ musee.prix }} </small></p>
             <p class="card-text">{{ musee.presentation }}</p>
             <p class="card-text">{{ musee.oeuvre }}</p>
         </div>
