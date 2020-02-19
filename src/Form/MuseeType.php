@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MuseeType extends AbstractType
 {
@@ -40,16 +41,20 @@ class MuseeType extends AbstractType
                     'placeholder' => "ex : entre 0 et 20 €"
                 ]
             ])
-            ->add('presentation',TextType::class,[
+            ->add('presentation',TextareaType::class,[
                 'required'=>false,
                 'attr' => [
+                    'cols'=> '10',
+                    'rows'=> '10',
                     'placeholder' => 'ex : Très beau musée avec de belles oeuvres'
                 ]
             ])
-            ->add('oeuvre', TextType::class,[
+            ->add('oeuvre', TextareaType::class,[
                 'label' => "Oeuvres célèbres",
                 'required'=>false,
                 'attr' => [
+                    'cols'=> '10',
+                    'rows'=> '10',
                     'placeholder' => 'ex : ce tableau ou cette scuplture emblématique du musée'
                 ]
             ])
