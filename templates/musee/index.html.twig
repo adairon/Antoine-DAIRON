@@ -11,11 +11,37 @@
     <button class="btn btn-primary my-3">
         <a href="{{ path('musee_new') }}">Ajouter un nouveau musée</a>
     </button>
-    
-        <table class="table table-striped">
+
+    {% for musee in musees %}
+
+    <div class="card mb-3">
+        <img class="card-img-top img-index" src="{{ musee.photo }}" alt="Card image cap">
+        <div class="card-body">
+            <h3 class="card-title">{{ musee.nom }}</h3>
+            <p class="card-text"><small class="text-muted">adresse : {{ musee.adresse }}</small></p>
+            <p class="card-text"><small class="text-muted">prix moyen : {{ musee.prix }} €</small></p>
+            <p class="card-text">{{ musee.presentation }}</p>
+            <p class="card-text">{{ musee.oeuvre }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+            <button class="btn btn-info">
+                <a href="{{ path('musee_show', {'id': musee.id}) }}">voir</a>
+            </button>
+            <button class="btn btn-warning">
+                <a href="{{ path('musee_edit', {'id': musee.id}) }}">modifier</a>
+            </button>
+        </div>
+    </div>
+    {% else %}
+        <tr>
+            <td colspan="8">Aucun musée enregistré</td>
+        </tr>
+    {% endfor %}
+
+        {# <table class="table table-striped">
             <thead class="text-center">
                 <tr>
-                    {# <th>Id</th> #}
+                    <th>Id</th>
                     <th>Nom</th>
                     <th>Photo</th>
                     <th>Adresse</th>
@@ -28,11 +54,11 @@
             <tbody>
             {% for musee in musees %}
                 <tr>
-                    {# <td>{{ musee.id }}</td> #}
+                    <td>{{ musee.id }}</td>
                     <td> <img src="{{ musee.photo }}" alt="{{ musee.nom }}"></td>
                     <td>{{ musee.nom }}</td>
                     <td>{{ musee.adresse }}</td>
-                    <td>{{ musee.prix }}</td>
+                    <td>{{ musee.prix }} €</td>
                     <td>{{ musee.presentation }}</td>
                     <td>{{ musee.oeuvre }}</td>
                     <td>
@@ -46,11 +72,28 @@
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="8">no records found</td>
+                    <td colspan="8">Aucun musée enregistré</td>
                 </tr>
             {% endfor %}
             </tbody>
-        </table>
+        </table> #}
+
     </div>
+
+{% for message in app.flashes('success') %}
+    <div class="container">
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('danger') %}
+    <div class="container">
+        <div class="alert alert-danger">
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
 
 {% endblock %}

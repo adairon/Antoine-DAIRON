@@ -2,9 +2,13 @@ h1{
     text-align: center;
     margin-top: 5px;
 }
-
-td img{
+/* ================= IMAGES ============== */
+/* td img{
     height: 150px;
+} */
+.img-index{
+    height: 400px;
+    object-fit: cover;
 }
 
 button a{

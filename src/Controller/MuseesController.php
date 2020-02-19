@@ -40,6 +40,7 @@ class MuseesController extends AbstractController
             $entityManager->persist($musee);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Le musée a bien été créé');
             return $this->redirectToRoute('musee_index');
         }
 
@@ -70,6 +71,7 @@ class MuseesController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash('success', 'Le musée a bien été modifié');
             return $this->redirectToRoute('musee_index');
         }
 
@@ -88,6 +90,8 @@ class MuseesController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($musee);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'Le musée a bien été supprimé');
         }
 
         return $this->redirectToRoute('musee_index');
