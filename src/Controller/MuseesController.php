@@ -11,9 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/musee")
+ * Route pour arriver directement sur la page d'accueil
+ * @Route("/")
  */
-class MuseeController extends AbstractController
+class MuseesController extends AbstractController
 {
     /**
      * @Route("/", name="musee_index", methods={"GET"})

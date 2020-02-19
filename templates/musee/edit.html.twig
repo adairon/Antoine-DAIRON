@@ -3,11 +3,18 @@
 {% block title %}Edit Musee{% endblock %}
 
 {% block body %}
-    <h1>Edit Musee</h1>
+    <h1>Modifier le {{ musee.nom }}</h1>
 
-    {{ include('musee/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="container">
+        <div class="col-9 justify-content-center m-auto">
+            {{ include('musee/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <a href="{{ path('musee_index') }}">back to list</a>
+            <button class="btn btn-secondary my-3">
+                <a href="{{ path('musee_index') }}">retour à la liste</a>
+            </button>
 
-    {{ include('musee/_delete_form.html.twig') }}
+            {{ include('musee/_delete_form.html.twig') }}
+        </div>
+    </div>
+
 {% endblock %}

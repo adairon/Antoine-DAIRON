@@ -1,45 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Musee index{% endblock %}
+{% block title %}Musées connus{% endblock %}
 
 {% block body %}
-    <h1>Musee index</h1>
+    <h1 class="text-center">Les Musées les plus connus</h1>
+    
+    
+    <div class="container mt-5">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Photo</th>
-                <th>Adresse</th>
-                <th>Prix</th>
-                <th>Presentation</th>
-                <th>Oeuvre</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for musee in musees %}
-            <tr>
-                <td>{{ musee.id }}</td>
-                <td>{{ musee.nom }}</td>
-                <td>{{ musee.photo }}</td>
-                <td>{{ musee.adresse }}</td>
-                <td>{{ musee.prix }}</td>
-                <td>{{ musee.presentation }}</td>
-                <td>{{ musee.oeuvre }}</td>
-                <td>
-                    <a href="{{ path('musee_show', {'id': musee.id}) }}">show</a>
-                    <a href="{{ path('musee_edit', {'id': musee.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <button class="btn btn-primary my-3">
+        <a href="{{ path('musee_new') }}">Ajouter un nouveau musée</a>
+    </button>
+    
+        <table class="table table-striped">
+            <thead class="text-center">
+                <tr>
+                    {# <th>Id</th> #}
+                    <th>Nom</th>
+                    <th>Photo</th>
+                    <th>Adresse</th>
+                    <th>Prix</th>
+                    <th>Presentation</th>
+                    <th>Oeuvre</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for musee in musees %}
+                <tr>
+                    {# <td>{{ musee.id }}</td> #}
+                    <td> <img src="{{ musee.photo }}" alt="{{ musee.nom }}"></td>
+                    <td>{{ musee.nom }}</td>
+                    <td>{{ musee.adresse }}</td>
+                    <td>{{ musee.prix }}</td>
+                    <td>{{ musee.presentation }}</td>
+                    <td>{{ musee.oeuvre }}</td>
+                    <td>
+                        <button class="btn btn-info">
+                            <a href="{{ path('musee_show', {'id': musee.id}) }}">voir</a>
+                        </button>
+                        <button class="btn btn-warning">
+                            <a href="{{ path('musee_edit', {'id': musee.id}) }}">modifier</a>
+                        </button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('musee_new') }}">Create new</a>
 {% endblock %}

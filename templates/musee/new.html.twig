@@ -3,9 +3,13 @@
 {% block title %}New Musee{% endblock %}
 
 {% block body %}
-    <h1>Create new Musee</h1>
-
-    {{ include('musee/_form.html.twig') }}
-
-    <a href="{{ path('musee_index') }}">back to list</a>
+    <h1>Créer un nouveau musée</h1>
+    <div class="container">
+        <div class="col-9 justify-content-center m-auto">
+            {{ include('musee/_form.html.twig') }}
+            <button class="btn btn-secondary my-3">
+                <a href="{{ path('musee_index') }}">retour à la liste</a>
+            </button>
+        </div>
+    </div>
 {% endblock %}
